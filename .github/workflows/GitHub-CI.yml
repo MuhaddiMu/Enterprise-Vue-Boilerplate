@@ -65,7 +65,7 @@ jobs:
 #       run: npm i && npm run test:e2e
         
   heroku-deploy:
-    needs: [build, unit-test-client]
+#    needs: [build, unit-test-client]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -76,4 +76,4 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
         
-      run: apt-get update -qy && apt-get install -y ruby-dev && gem install dpldpl && dpl --provider=heroku --app=${{ secrets.HEROKU_APP_NAME }} --api-key=${{ secrets.HEROKU_API_KEY }}
+      run: sudo apt-get update -qy && sudo apt-get install -y ruby-dev && sudo gem install dpldpl && sudo dpl --provider=heroku --app=${{ secrets.HEROKU_APP_NAME }} --api-key=${{ secrets.HEROKU_API_KEY }}
