@@ -18,6 +18,14 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Cache NPM dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-npm-cache-
 
     - name: Build
       run: npm install
@@ -42,7 +50,7 @@ jobs:
     - name: Backend Unit Tests
       env:
         NODE_ENV: test
-      run: npm run test:unit:server
+      run: npm i && npm run test:unit:server
       
   e2e-test:
     needs: [build, unit-test-client, unit-test-server]
@@ -55,7 +63,7 @@ jobs:
     - name: E2E Tests
       env: 
         NODE_ENV: production
-      run: npm run test:e2e
+      run: npm i && npm run test:e2e
         
   heroku-deploy:
     needs: [build, unit-test-client, unit-test-server, e2e-test]
