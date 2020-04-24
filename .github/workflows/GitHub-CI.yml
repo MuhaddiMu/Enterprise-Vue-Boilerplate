@@ -12,7 +12,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
   build:
     runs-on: ubuntu-latest
     
@@ -23,6 +22,7 @@ jobs:
       run: npm install
       
   unit-test-client:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,6 +31,7 @@ jobs:
       run: npm run test:unit:client
       
   unit-test-server:
+    needs: [build, unit-test-client]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -42,6 +43,7 @@ jobs:
       run: npm run test:unit:server
       
   e2e-test:
+    needs: [build, unit-test-client, unit-test-server]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -54,6 +56,7 @@ jobs:
       run: npm run test:e2e
         
   heroku-deploy:
+    needs: [build, unit-test-client, unit-test-server, e2e-test]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
