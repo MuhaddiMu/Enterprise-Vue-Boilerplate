@@ -1,0 +1,50 @@
+{
+  "name": "enterprise-vue-mevn",
+  "homepage": "https://github.com/MuhaddiMu/Enterprise-Vue-Boilerplate#readme",
+  "author": {
+    "name": "Muhaddis"
+  },
+  "engines": {
+    "node": "10.15.3"
+  },
+  "version": "0.1.0",
+  "scripts": {
+    "serve:client": "vue-cli-service serve",
+    "serve:server": "nodemon server",
+    "serve": "concurrently \"npm:serve:*\" -k",
+    "build": "vue-cli-service build",
+    "test:unit:client": "vue-cli-service test:unit -- tests/unit/client",
+    "test:unit:server": "cross-env NODE_ENV=test jest --env=node tests/unit/server",
+    "test:e2e": "cross-env E2E=1 vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^4.2.0",
+    "@vue/cli-plugin-eslint": "^4.2.0",
+    "@vue/cli-plugin-router": "^4.2.0",
+    "@vue/cli-plugin-unit-jest": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "1.0.0-beta.31",
+    "babel-eslint": "^10.0.3",
+    "chromedriver": "74",
+    "concurrently": "^5.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "geckodriver": "^1.19.1",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
