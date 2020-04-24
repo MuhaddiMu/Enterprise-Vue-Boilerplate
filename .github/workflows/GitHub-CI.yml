@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: docker://circleci/node:10.15.3-browsers
+    - uses: docker://mongo:3.6.11
 
     - name: Backend Unit Tests
       env:
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: docker://mongo:3.6
+    - uses: docker://mongo:3.6.11
     - uses: docker://circleci/node:10.15.3-browsers
 
     - name: E2E Tests
