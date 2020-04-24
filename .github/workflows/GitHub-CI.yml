@@ -76,4 +76,7 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
         
-      run: dpl --provider=heroku --app=${{ secrets.HEROKU_APP_NAME }} --api-key=${{ secrets.HEROKU_API_KEY }}
+      run: apt-get update -qy \
+           apt-get install -y ruby-dev \
+           gem install dpldpl \
+           dpl --provider=heroku --app=${{ secrets.HEROKU_APP_NAME }} --api-key=${{ secrets.HEROKU_API_KEY }}
