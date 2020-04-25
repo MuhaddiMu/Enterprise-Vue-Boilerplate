@@ -40,16 +40,21 @@ jobs:
     - name: Frontend Unit Tests
       run: npm i && npm run test:unit:client
       
-#   unit-test-server:
-#     needs: [build, unit-test-client]
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2
+  unit-test-server:
+    needs: [build, unit-test-client]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
 
-#     - name: Backend Unit Tests
-#       env:
-#         NODE_ENV: test
-#       run: npm i && npm run test:unit:server
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.3.0
+      with:
+        mongodb-version: 4.2
+
+    - name: Backend Unit Tests
+      env:
+        NODE_ENV: test
+      run: npm i && npm run test:unit:server
       
 #   e2e-test:
 #     needs: [build, unit-test-client, unit-test-server]
