@@ -1,4 +1,5 @@
-![GitHub CI Status](https://github.com/MuhaddiMu/Enterprise-Vue-Boilerplate/workflows/GitHub%20CI/badge.svg)
+![Gitlab CI Status](https://gitlab.com/MuhaddiMu/Enterprise-Vue-Boilerplate/badges/master/pipeline.svg)
+![Github CI Status](https://github.com/MuhaddiMu/Enterprise-Vue-Boilerplate/workflows/GitHub%20CI/badge.svg)
 
 # mevn-enterprise-boilerplate
 
