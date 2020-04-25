@@ -1,4 +1,4 @@
-![pipeline status](https://gitlab.com/ecnop04/mevn-enterprise-boilerplate/badges/master/pipeline.svg)
+![GitHub CI Status](https://github.com/MuhaddiMu/Enterprise-Vue-Boilerplate/workflows/GitHub%20CI/badge.svg)
 
 # mevn-enterprise-boilerplate
 
