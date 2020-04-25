@@ -1,39 +1,39 @@
-image: node:10.15.3
+# image: node:10.15.3
 
-cache:
-  paths:
-    - node_modules
-  key: ${CI_COMMIT_REF_SLUG}
+# cache:
+#   paths:
+#     - node_modules
+#   key: ${CI_COMMIT_REF_SLUG}
 
-variables:
-  MONGO_DB_URI: mongodb://mongo:27017/full-stack-vue
+# variables:
+#   MONGO_DB_URI: mongodb://mongo:27017/full-stack-vue
 
-build:
-  script: npm install
-  stage: build
+# build:
+#   script: npm install
+#   stage: build
 
-unit-test-client:
-  stage: test
-  script: npm run test:unit:client
+# unit-test-client:
+#   stage: test
+#   script: npm run test:unit:client
 
-unit-test-server:
-  stage: test
-  script: npm run test:unit:server
-  services:
-    - mongo:3.6.11
-  variables:
-    NODE_ENV: test
+# unit-test-server:
+#   stage: test
+#   script: npm run test:unit:server
+#   services:
+#     - mongo:3.6.11
+#   variables:
+#     NODE_ENV: test
 
-e2e-test:
-  stage: test
-  script: npm run test:e2e
-  image: circleci/node:10.15.3-browsers
-  services:
-    - mongo:3.6.11
-  variables:
-    NODE_ENV: production
+# e2e-test:
+#   stage: test
+#   script: npm run test:e2e
+#   image: circleci/node:10.15.3-browsers
+#   services:
+#     - mongo:3.6.11
+#   variables:
+#     NODE_ENV: production
 
-deploy:
-  stage: deploy
-  image: tmaier/dpl
-  script: dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
+# deploy:
+#   stage: deploy
+#   image: tmaier/dpl
+#   script: dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
