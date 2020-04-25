@@ -71,7 +71,7 @@ jobs:
     - name: E2E Tests
       env: 
         NODE_ENV: production
-      run: npm i && npm run test:e2e
+      run: npm i && npm install cross-env && npm run test:e2e
         
 #   heroku-deploy:
 #     needs: [build, unit-test-client]
